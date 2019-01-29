@@ -133,6 +133,47 @@ $(document).ready(function(){
 
 
 
+	$('#addNewFight').submit(function(event){
+		event.preventDefault();
+		ajaxPost_AddFight();
+
+	});
+
+	function ajaxPost_AddFight(){
+		var fightData = {};
+		fightData.username_1 = $('#addfight-username1').val();
+		fightData.username_2 = $('#addfight-username2').val();
+		fightData.id = $('#addfight-id').val();
+		fightData.location = $('#addfight-location').val();
+		fightData.noOfRounds = $('#addfight-rounds').val();
+		console.log(fightData);
+		$.ajax({
+			type: 'POST',
+			contentType: 'application/json',
+			data: JSON.stringify(fightData),
+			dataType: 'json',			
+			url: window.location + 'addfight',
+			success: function(result){
+				console.log("Hi");
+				console.log(JSON.stringify(result));
+				ajaxGet_loadFightTables();
+			},
+			error: function(e){
+				if(e.status = 401){
+					alert("You must be logged in to do that");
+					console.log("ERROR: ", e);
+				}else{
+					alert("Unknown Error");
+					console.log("ERROR: ", e);
+				}
+			}
+		});	
+	}
+
+
+
+
+
 	function ajaxGet_loadAccountTable(){
 		$.ajax({
 			type: 'GET',
@@ -190,43 +231,6 @@ $(document).ready(function(){
 		$('#navbarLogin').removeClass("hide");
 		$('#navbarLogout').attr("class", "hide");	
 	});
-
-
-
-
-
-	$('#addNewFight').submit(function(event){
-		event.preventDefault();
-		ajaxPost_AddFight();
-
-	});
-
-	function ajaxPost_AddFight(){
-		var fightData = {};
-		fightData.username_1 = $('#addfight-username1').val();
-		fightData.username_2 = $('#addfight-username2').val();
-		fightData.id = $('#addfight-id').val();
-		fightData.location = $('#addfight-location').val();
-		fightData.noOfRounds = $('#addfight-rounds').val();
-		console.log(fightData);
-		$.ajax({
-			type: 'POST',
-			contentType: 'application/json',
-			data: JSON.stringify(fightData),
-			dataType: 'json',			
-			url: window.location + 'addfight',
-			success: function(result){
-				console.log("Hi");
-				console.log(JSON.stringify(result));
-				ajaxGet_loadFightTables();
-			},
-			error: function(e){
-				alert("Error");
-				console.log("ERROR: ", e);
-			}
-		});	
-	}
-
 
 
 	// Loads the table data
