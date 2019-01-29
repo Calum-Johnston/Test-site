@@ -105,7 +105,7 @@ $(document).ready(function(){
 				console.log(result.token);
 				$.ajaxSetup({
 					headers: {
-						'Authorisation' : "bearer " + result.token
+						'Authorization' : "bearer " + result.token
 					}
 				});
 

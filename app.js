@@ -95,7 +95,6 @@ FUNCTIONS RELATING TO ADDING A FIGHT
 
 app.post('/addfight', passport.authenticate('bearer', {session: false}), function(req, res){
 	var result = {};
-	console.log(req.user);
 	var newFight = {};
 	newFight.username_1 = req.body.username_1;
 	newFight.username_2 = req.body.username_2;
@@ -165,7 +164,6 @@ passport.use(new LocalStrategy((username, password, done) => {
 
 passport.use(new BearerStrategy((token, done) => {
 	console.log(token);
-	console.log(username);
 	try{
 		const { username } = jwt.decode(token, SECRET);
 		if(username === "cal_johnston"){
