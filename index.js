@@ -1,4 +1,7 @@
 const app = require('./app');
-app.listen(8090, function(){
+
+const port = env.process.PORT || 8080;
+
+app.listen(port, function(){
 	console.log('App listening on port 8090');
 });
