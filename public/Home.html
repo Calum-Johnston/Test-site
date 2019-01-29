@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewpoint" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="CSS.css" type="text/css">
+		
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="JavaScript.js"></script>
+
+		<title>Durham University Boxing Club</title>
+	</head>
+	<body id="main" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+			    <div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					   <span class="icon-bar"></span>
+					   <span class="icon-bar"></span>
+					   <span class="icon-bar"></span> 
+					</button>
+					<a class="navbar-brand" href=""><strong>Boxing</strong></a>
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav navbar-left">
+						<li><a href="#aboutus">ABOUT US</a></li>
+						<li><a href="#fights">FIGHTS</a></li>
+						<li><a href="#boxers">BOXERS</a></li>
+						<li><a href="#values">VALUES</a></li>
+						<li><a href="#contact">CONTACT US</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+					  	<li id="navbarSignup"><a href="#" data-toggle="modal" data-target="#account-modal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+						<li id="navbarLogin"><a href="#" data-toggle="modal" data-target="#login-modal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+						<li id="navbarLogout" class="hide"><a href=""><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div class="jumbotron text-center">
+			<h1><Strong>Durham University Boxing Club</Strong></h1>
+			<p>The fastest, fittess and most dedicated club</p>
+		</div>
+
+		<div class="container-fluid" id="aboutus">
+			<div class="row">
+				<div class="col-xs-8">
+					<h3 class="text-center">Durham University Boxing Club is one of the most dedicated clubs in Durham. We are a
+						small but growing club, with over 200 people attending weekly fitness sessions,
+						and over 20 students competing for the uni.
+					</h3>
+					<h4 class="text-center">If you'd like to get involved, we train everyday 6-8pm at Hild Bede East Gym.
+						Feel free to come along and test it out, we offer 5 free sessions to any beginners who want to try
+						us out!
+					</h4>
+				</div>
+				<div class="col-xs-4 text-center">
+					<h1>About Us</h1>
+					<span class="glyphicon glyphicon-cloud icon"></span>
+				</div>
+			</div>
+		</div>
+
+		<div class="container-fluid background-grey" id="fights">
+			<div class="row slide-feature">
+				<div class="col-xs-4 text-center">
+					<h1>Fight Tables</h1>
+					<span class="glyphicon glyphicon-signal icon"></span>
+				</div>
+				<div class="col-xs-8">
+					<h3>Upcoming Fights</h3>
+					<div class="table-responsive">
+						<table class="table table-hover table-striped" data-height="460">
+							<thead class="thead">
+								<tr>
+									<th data-field="data_fightUser1" scope="col">Boxer 1</th>
+									<th data-field="data_fightUser2" scope="col">Boxer 2</th>
+									<th data-field="data_fightid" scope="col">Fight ID</th>
+									<th data-field="data_fightLocation" scope="col">Location</th>
+									<th data-field="data_noOfRounds" scope="col">Number of Rounds</th>
+								</tr>
+							</thead>
+							<tbody id="tbody_fights">
+							</tbody>
+						</table>
+					</div>
+
+					<div class="row">
+						<form id="addNewFight">
+							<div class="col-xs-2 form-group">
+								<label for="firstBoxer">First Boxer:</label>
+								<input type="text" class="form-control" id="addfight-username1" placeholder="Enter the first boxer"/>
+							</div>
+							<div class="col-xs-2 form-group">
+								<label for="secondBoxer">Second Boxer:</label>
+								<input type="text" class="form-control" id="addfight-username2" placeholder="Enter the second boxer"/>
+							</div>
+							<div class="col-xs-2 form-group">
+								<label for="fightID">ID:</label>
+								<input type="text" class="form-control" id="addfight-id" placeholder="Enter the fight ID"/>
+							</div>
+							<div class="col-xs-2 form-group">
+								<label for="fightLocation">Location:</label>
+								<input type="text" class="form-control" id="addfight-location" placeholder="Enter the fight location"/>
+							</div>
+							<div class="col-xs-2 form-group">
+								<label for="fightRounds">Number of Rounds:</label>
+								<input type="text" class="form-control" id="addfight-rounds" placeholder="Enter the number of rounds"/>
+							</div>
+							<div class="col-xs-2 form-group">
+								<button type="submit" class="btn btn-outline-success">Submit</button>
+							</div>
+						</form>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="container-fluid" id="boxers">
+			<div class="row slide-feature">
+				<div class="col-xs-8">
+					<div class="table-responsive">
+						<table class="table table-hover table-striped" data-height="460">
+							<thead class="thead">
+								<tr>
+									<th data-field="data_forename" scope="col">Firstname</th>
+									<th data-field="data_surname" scope="col">Surname</th>
+									<th data-field="data_username" scope="col">Username</th>
+								</tr>
+							</thead>
+							<tbody id="tbody_accounts">
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="col-xs-4 text-center">
+					<h1>Current Boxers</h1>
+					<span class="glyphicon glyphicon-user icon"></span>
+				</div>
+			</div>
+		</div>
+
+		<div class="container-fluid background-grey" id="values">
+			<div class="row">
+				<div class="col-xs-12 text-center">
+					<h1>Our Values</h1>
+				</div>
+			</div>
+
+			<div class="row text-center slide-feature">
+				<div class="col-xs-4">
+					<div class="thumbnail">
+						<img src="/img/fitness.jpg" alt="fitness">
+						<p><strong>Fitness</strong></p>
+					</div>
+				</div>
+				<div class="col-xs-4">
+					<div class="thumbnail">
+						<img src="/img/stamina.jpg" alt="stamina">
+						<p><strong>Stamina</strong></p>
+					</div>
+				</div>
+				<div class="col-xs-4">
+					<div class="thumbnail">
+						<img src="/img/determination.jpg" alt="determination">
+						<p><strong>Determination</strong></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container-fluid" id="contact">
+			<h1 class="text-center">Contact Us</h1>
+			<div class="row">
+				<div class="col-xs-5">
+					<p>Contact us and we'll get back to you as soon as we can.</p>
+					<p><span class="glyphicon glyphicon-map-marker"></span> Durham, UK</p>
+					<p><span class="glyphicon glyphicon-phone"></span> +44 1515151515</p>
+					<p><span class="glyphicon glyphicon-envelope"></span> boxing@durham.com</p>
+				</div>
+				<div class="col-xs-7 slide-feature">
+					<div class="row">
+						<div class="col-xs-6 form-group">
+							<input class="form-control" id="contactName" placeholder="Name" type="text" required>
+						</div> 
+						<div class="col-xs-6 form-group">
+							<input class="form-control" id="contactEmail" placeholder="Email" type="text" required>
+						</div> 
+					</div>
+					<textarea class="form-control" id="contactComment" placeholder="Comment" rows="5"></textarea>
+					<div class="row">
+						<div class="col-xs-12 form-group">
+							<button class="btn btn-default pull-right">Send</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer class="container-fluid text-center background-grey">
+			<a href="#main" title="To Top">
+				<span class="glyphicon glyphicon-chevron-up"></span>
+			</a>
+			<p>Website created by Calum Johnston</p>
+		</footer>
+			
+		<div class="container">
+			<div class="modal fade" id="account-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+				<div class="modal-dialog">
+					<div class="loginmodal-container">
+						<h1>Create an Account</h1>
+						<form id="addNewAccount">
+							<div class="form-group">
+								<label for="forename">FirstName:</label>
+								<input type="text" class="form-control" id="createAccount_forename" placeholder="Enter your first name"/>
+							</div>
+							<div class="form-group">
+								<label for="surname">LastName:</label>
+								<input type="text" class="form-control" id="createAccount_surname" placeholder="Enter your surname"/>
+							</div>
+							<div class="form-group">
+								<label for="username">Username:</label>
+								<input type="text" class="form-control" id="createAccount_username" placeholder="Enter a username"/>
+							</div>
+							<div class="form-group">
+								<label for="password">Password:</label>
+								<input type="password" class="form-control" id="createAccount_password" placeholder="Enter a password"/>
+							</div>
+							<button type="submit" class="btn btn-outline-success loginmodal-submit">Submit</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+			
+		<div class="container">
+			<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+				<div class="modal-dialog">
+					<div class="loginmodal-container">
+						<h1>Login to your account</h1>
+						<form id="loginToAccount">
+							<div class="form-group">
+								<label for="forename">Username:</label>
+								<input type="text" class="form-control" id="login_username" placeholder="Enter your username"/>
+							</div>
+							<div class="form-group">
+								<label for="surname">Password:</label>
+								<input type="password" class="form-control" id="login_password" placeholder="Enter your password"/>
+							</div>
+							<button type="submit" class="btn btn-outline-success loginmodal-submit">Submit</button>
+						</form>
+						<div class="login-help">
+							<a href="#">Register</a> - <a href="#">Forgot Password</a>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</body>
+</html>

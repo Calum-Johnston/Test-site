@@ -1,0 +1,227 @@
+* {box-sizing: border-box;}
+ul {list-style-type: none;}
+body {font-family: sans-serif;}
+
+/****** GENERAL ******/
+.container-fluid{
+	position: relative;
+	padding: 50px 50px
+}
+
+.background-grey{
+	background-color: #f6f6f6;
+}
+
+.hide{
+	display: none;
+}
+
+.icon{
+	color: #f4511e;
+	font-size: 200px;
+}
+
+h1{
+	font-size: 48px;
+	text-transform: uppercase;
+	font-weight: 600;
+	padding: 0 0 20px 0;
+}
+
+h4{
+	padding: 20px 0 0 0;
+}
+
+
+
+
+/****** PAGE HEADER AND NAVBAR ******/
+.jumbotron{
+	background-color: #f4511e;
+	color: #ffffff;
+	padding: 100px 20px;
+}
+
+.jumbotron h1{
+	text-transform: none;
+}
+
+.navbar{
+	background-color: #f4511e;
+	border-color: transparent;
+	margin-bottom: 0!important;
+	border: 0;
+}
+
+.navbar-nav li a:hover, .navbar-nav li.active a{
+	background-color: #ffffff!important;
+	color: #f4511e!important;
+}
+
+.navbar-brand{
+	color: #ffffff;
+}
+
+.navbar .navbar-brand, .nav.navbar-nav.navbar-left li a, .nav.navbar-nav.navbar-right li a{
+	color: #ffffff;
+}
+
+
+
+
+
+/****** ABOUT US ******/
+#aboutus{
+	background-color: #ffffff;
+}
+
+.thumbnail{
+	padding: 0 0 15px 0;
+	border: none;
+}
+
+.thumbnail img{
+	width: 100%;
+	height: 100%;
+	margin-bottom: 10px;
+}
+
+
+
+
+
+/****** FIGHT TABLE & BOXERS ******/
+table{
+	border: 1px solid black;
+}
+
+.thead{
+	background-color: #f4511e;
+}
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+
+
+
+
+/****** LOGIN & SIGN UP ******/
+.loginmodal-container {
+	padding: 30px;
+	max-width: 350px;
+	width: 100% !important;
+	background-color: #F7F7F7;
+	margin: 0 auto;
+	border-radius: 2px;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+	overflow: hidden;
+	font-family: roboto;
+  }
+  
+  .loginmodal-container h1 {
+	text-align: center;
+	font-size: 1.8em;
+  }
+  
+  .loginmodal-container input[type=text], input[type=password] {
+	height: 44px;
+	font-size: 16px;
+	width: 100%;
+	margin-bottom: 10px;
+	-webkit-appearance: none;
+	background: #fff;
+	border: 1px solid #d9d9d9;
+	border-top: 1px solid #c0c0c0;
+	padding: 0 8px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+  }
+  
+  .loginmodal-container input[type=text]:hover, input[type=password]:hover {
+	border: 1px solid #b9b9b9;
+	border-top: 1px solid #a0a0a0;
+	-moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+	-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+	box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  }
+  
+  .loginmodal-submit {
+	border: 0px;
+	color: #fff;
+	text-shadow: 0 1px rgba(0,0,0,0.1); 
+	background-color: #f4511e;
+	padding: 17px 0px;
+	font-family: roboto;
+	font-size: 14px;
+	width: 100%;
+	display: block;
+	margin-bottom: 10px;
+	position: relative;
+  }
+  
+  .loginmodal-submit:hover {
+	border: 0px;
+	text-shadow: 0 1px rgba(0,0,0,0.3);
+	background-color: #f4511e;
+  }
+  
+  .loginmodal-container a {
+	text-decoration: none;
+	color: #666;
+	font-weight: 400;
+	text-align: center;
+	display: inline-block;
+	opacity: 0.6;
+	transition: opacity ease 0.5s;
+  } 
+  
+  .login-help{
+	font-size: 12px;
+	}
+
+
+
+
+
+	/****** SLIDING ELEMENTS ******/
+.slide-feature{visibility: hidden;}
+.slide{
+	animation-name: slide;
+	-webkit-animation-name: slide;
+	animation-duration: 1s;
+	-webkit-animation-duration: 1s;
+	visibility: visible;
+}
+
+@keyframes slide{
+	0%{
+		opacity: 0;
+		transform: translateY(70%);
+	}
+	100%{
+		opacity: 1;
+		transform: translateY(0%);
+	}
+}
+
+@-webkit-keyframes slide{
+	0%{
+		opacity: 0;
+		-webkit-transform: translateY(70%);
+	}
+	100%{
+		opacity: 1;
+		-webkit-transform: translateY(0%);
+	}
+}

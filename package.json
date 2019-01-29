@@ -1,0 +1,23 @@
+{
+  "name": "web-assignment",
+  "version": "1.0.0",
+  "description": "Integrate NodeJS Express with JQuery Ajax POST/GET requests (along with responsive Bootstrap content)",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node index.js"
+  },
+  "author": "Calum Johnston",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "jwt-simple": "^0.5.5",
+    "passport": "^0.4.0",
+    "passport-http-bearer": "^1.0.1",
+    "passport-local": "^1.0.0",
+    "supertest": "^3.4.1"
+  },
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
+}
