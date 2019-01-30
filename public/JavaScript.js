@@ -50,7 +50,7 @@ $(document).ready(function(){
 			contentType: 'application/json',
 			data: JSON.stringify(accountData),
 			dataType: 'json',			
-			url: window.location + 'people',
+			url: window.location.origin + '/people',
 			success: function(result){
 				console.log(JSON.stringify(result));
 				ajaxGet_loadAccountTable();
@@ -97,7 +97,7 @@ $(document).ready(function(){
 			contentType: 'application/json',
 			data: JSON.stringify(accountData),
 			dataType: 'json',			
-			url: window.location + 'login',
+			url: window.location.origin + '/login',
 			success: function(result){
 				$('#navbarSignup').attr("class", "hide");
 				$('#navbarLogin').attr("class", "hide");
@@ -152,7 +152,7 @@ $(document).ready(function(){
 			contentType: 'application/json',
 			data: JSON.stringify(fightData),
 			dataType: 'json',			
-			url: window.location + 'addfight',
+			url: window.location.origin + '/addfight',
 			success: function(result){
 				console.log("Hi");
 				console.log(JSON.stringify(result));
@@ -177,7 +177,7 @@ $(document).ready(function(){
 	function ajaxGet_loadAccountTable(){
 		$.ajax({
 			type: 'GET',
-			url: window.location + "people",
+			url: window.location.origin + "/people",
 			success: function(accounts){
 				console.log(accounts);
 				$('#tbody_accounts').empty();
@@ -201,9 +201,10 @@ $(document).ready(function(){
 
 
 	function ajaxGet_loadFightTables(){
+		console.log(window.location);
 		$.ajax({
 			type: 'GET',
-			url: window.location + "fights",
+			url: window.location.origin + "/fights",
 			success: function(fights){
 				console.log(fights);
 				$('#tbody_fights').empty();
