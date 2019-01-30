@@ -5,11 +5,12 @@ body {font-family: sans-serif;}
 /****** GENERAL ******/
 .container-fluid{
 	position: relative;
-	padding: 50px 50px
+	padding: 10px 50px 10px 50px;
 }
 
 .background-grey{
 	background-color: #f6f6f6;
+	
 }
 
 .hide{
@@ -17,7 +18,7 @@ body {font-family: sans-serif;}
 }
 
 .icon{
-	color: #f4511e;
+	color: #4ABDAC;
 	font-size: 200px;
 }
 
@@ -37,7 +38,7 @@ h4{
 
 /****** PAGE HEADER AND NAVBAR ******/
 .jumbotron{
-	background-color: #f4511e;
+	background-color: #4ABDAC;
 	color: #ffffff;
 	padding: 100px 20px;
 }
@@ -47,15 +48,15 @@ h4{
 }
 
 .navbar{
-	background-color: #f4511e;
+	background-color: #F78733;
 	border-color: transparent;
 	margin-bottom: 0!important;
 	border: 0;
 }
 
 .navbar-nav li a:hover, .navbar-nav li.active a{
-	background-color: #ffffff!important;
-	color: #f4511e!important;
+	background-color: #FC4A1A!important;
+	color: #ffffff!important;
 }
 
 .navbar-brand{
@@ -96,7 +97,7 @@ table{
 }
 
 .thead{
-	background-color: #f4511e;
+	background-color: #F78733;
 }
 
 .overlay {
@@ -160,9 +161,8 @@ table{
 	border: 0px;
 	color: #fff;
 	text-shadow: 0 1px rgba(0,0,0,0.1); 
-	background-color: #f4511e;
+	background-color: #4ABDAC;
 	padding: 17px 0px;
-	font-family: roboto;
 	font-size: 14px;
 	width: 100%;
 	display: block;
@@ -173,7 +173,7 @@ table{
   .accountmodal-submit:hover {
 	border: 0px;
 	text-shadow: 0 1px rgba(0,0,0,0.3);
-	background-color: #f4511e;
+	background-color: #4ABDAC;
   }
   
   .accountmodal-container a {
