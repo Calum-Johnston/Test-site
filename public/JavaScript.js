@@ -36,7 +36,6 @@ $(document).ready(function(){
 	$("#addNewAccount").submit(function(event){
 		event.preventDefault();
 		ajaxPost_AddAccount();
-		$('#account-modal').modal('toggle');
 	});
 	
 	function ajaxPost_AddAccount(){
@@ -45,6 +44,8 @@ $(document).ready(function(){
 		accountData.surname = $('#createAccount_surname').val();
 		accountData.username = $('#createAccount_username').val();
 		accountData.password = $('#createAccount_password').val();
+		$('#account-username-duplicate-error').hide(500);
+		$('#account-unauthorised-error').hide(500);
 		$.ajax({
 			type: 'POST',
 			contentType: 'application/json',
@@ -52,16 +53,17 @@ $(document).ready(function(){
 			dataType: 'json',			
 			url: window.location.origin + '/people',
 			success: function(result){
+				$('#account-modal').modal('toggle');
 				console.log(JSON.stringify(result));
 				ajaxGet_loadAccountTable();
 			},
 			error: function(e){
 				if(e.status = 400){
 					console.log("Username already exists");
-					alert("Cannot make account - Username already exists");
+					$('#account-username-duplicate-error').show(500);
 				}else if(e.status = 403){
 					console.log("User not authorised to make request");
-					alert("Invalid access token, please refresh the page");
+					$('#account-unauthorised-error').show(500);
 				}else{
 					alert("Error");
 					console.log("ERROR: ", e);
@@ -85,13 +87,14 @@ $(document).ready(function(){
 	$('#loginToAccount').submit(function(event){
 		event.preventDefault();
 		ajaxPost_LoginToAccount();
-		$('#login-modal').modal('toggle');
+		
 	});
 
 	function ajaxPost_LoginToAccount(){
 		var accountData = {};
 		accountData.username = $('#login_username').val();
 		accountData.password = $('#login_password').val();
+		$('#login-error').hide(500);
 		$.ajax({
 			type: 'POST',
 			contentType: 'application/json',
@@ -99,24 +102,22 @@ $(document).ready(function(){
 			dataType: 'json',			
 			url: window.location.origin + '/login',
 			success: function(result){
+				$('#login-modal').modal('toggle');
 				$('#navbarSignup').attr("class", "hide");
 				$('#navbarLogin').attr("class", "hide");
 				$('#navbarLogout').removeClass("hide");
-				console.log(result.token);
 				$.ajaxSetup({
 					headers: {
 						'Authorization' : "bearer " + result.token
 					}
 				});
-
 			},
 			error: function(e){
 				console.log(e);
 				if(e.status = 400){
+					$('#login-error').show(500);
 					console.log("Incorrect username or password entered");
-					alert("Incorrect Username/Password Entered");
 				}else{
-					alert("Unknown Error");
 					console.log("ERROR: ", e);
 				}
 			}

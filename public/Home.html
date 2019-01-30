@@ -218,22 +218,28 @@
 						<h1>Create an Account</h1>
 						<form id="addNewAccount">
 							<div class="form-group">
-								<label for="forename">FirstName:</label>
+								<label for="forename">Forename:</label>
 								<input type="text" class="form-control" id="createAccount_forename" placeholder="Enter your first name"/>
+								<span class="error" id="account-forename-error">Please enter a forename</span>
 							</div>
 							<div class="form-group">
 								<label for="surname">LastName:</label>
 								<input type="text" class="form-control" id="createAccount_surname" placeholder="Enter your surname"/>
+								<span class="error" id="account-surname-error">Please enter a surname</span>
 							</div>
 							<div class="form-group">
 								<label for="username">Username:</label>
 								<input type="text" class="form-control" id="createAccount_username" placeholder="Enter a username"/>
+								<span class="error" id="account-username-error">Please enter a valid email</span>
 							</div>
 							<div class="form-group">
-								<label for="password">Password:</label>
+								<label for="passwo	rd">Password:</label>
 								<input type="password" class="form-control" id="createAccount_password" placeholder="Enter a password"/>
+								<span class="error" id="account-password-error">Please enter a Password</span>
 							</div>
 							<button type="submit" class="btn btn-outline-success accountmodal-submit">Submit</button>
+							<span class="error" id="account-username-duplicate-error">Cannot create account - username already exists</span>
+							<span class="error" id="account-unauthorised-error">Invalid access token, please refresh the page</span>
 						</form>
 					</div>
 				</div>
@@ -259,6 +265,7 @@
 						<div class="account-help">
 							<a href="#">Register</a> - <a href="#">Forgot Password</a>
 						</div>
+						<span class="error" id="login-error">Invalid Username or Password</span>
 					</div>
 				</div>	
 			</div>

@@ -190,6 +190,12 @@ table{
 	font-size: 12px;
   }
 
+  .error{
+	display: none;
+	margin-left: 10px;
+	color: red;	
+  }
+
 
 
 
