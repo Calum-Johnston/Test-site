@@ -89,8 +89,7 @@ $(document).ready(function(){
 
 	$('#loginToAccount').submit(function(event){
 		event.preventDefault();
-		ajaxPost_LoginToAccount();
-		
+		ajaxPost_LoginToAccount();	
 	});
 
 	function ajaxPost_LoginToAccount(){
@@ -117,7 +116,6 @@ $(document).ready(function(){
 				});
 			},
 			error: function(e){
-				console.log(e);
 				if(e.status = 400){
 					$('#login-error').show(500);
 					console.log("Incorrect username or password entered");
@@ -141,7 +139,6 @@ $(document).ready(function(){
 	$('#addNewFight').submit(function(event){
 		event.preventDefault();
 		ajaxPost_AddFight();
-
 	})
 
 	function ajaxPost_AddFight(){
@@ -152,7 +149,6 @@ $(document).ready(function(){
 		fightData.id = $('#addfight-id').val();
 		fightData.location = $('#addfight-location').val();
 		fightData.noOfRounds = $('#addfight-rounds').val();
-		console.log(fightData);
 		$.ajax({
 			type: 'POST',
 			contentType: 'application/json',
@@ -160,7 +156,6 @@ $(document).ready(function(){
 			dataType: 'json',			
 			url: window.location.origin + '/addfight',
 			success: function(result){
-				console.log("Hi");
 				console.log(JSON.stringify(result));
 				ajaxGet_loadFightTables();
 			},
@@ -180,12 +175,22 @@ $(document).ready(function(){
 
 
 
+	$('#contact').submit(function(event){
+		event.preventDefault();
+		$('#contactName').val("");
+		$('#contactEmail').val("");
+		$('#contactComment').val("");
+	})
+
+
+
+
+
 	function ajaxGet_loadAccountTable(){
 		$.ajax({
 			type: 'GET',
 			url: window.location.origin + "/people",
 			success: function(accounts){
-				console.log(accounts);
 				$('#tbody_accounts').empty();
 				$.each(accounts, function(i, account){
 					var eachrow = "<tr>" 
@@ -194,7 +199,6 @@ $(document).ready(function(){
 					+ "<td>" + account.username + "</td>" + "</tr>";
 					$('#tbody_accounts').append(eachrow);
 				});
-				console.log("Success", accounts);
 			},
 			error: function(e){
 				console.log("ERROR: ", e);
@@ -207,15 +211,12 @@ $(document).ready(function(){
 
 
 	function ajaxGet_loadFightTables(){
-		console.log(window.location);
 		$.ajax({
 			type: 'GET',
 			url: window.location.origin + "/fights",
 			success: function(fights){
-				console.log(fights);
 				$('#tbody_fights').empty();
 				$.each(fights, function(i, fight){
-					console.log(fight);
 					var eachrow = "<tr>" 
 					+ "<td>" + fight.username_1 + "</td>"
 					+ "<td>" + fight.username_2 + "</td>"
@@ -225,7 +226,6 @@ $(document).ready(function(){
 					+ "</tr>";
 					$('#tbody_fights').append(eachrow);				
 				});
-				console.log("Success", fights);
 			},
 			error: function(e){
 				console.log("ERROR: ", e);

@@ -90,29 +90,10 @@
 							</tbody>
 						</table>
 					</div>
-
 					<div class="row">
-						<form id="addNewFight">
-							<div class="col-sm-2 form-group">
-								<label for="firstBoxer">First Boxer:</label>
-								<input type="text" class="form-control" id="addfight-username1" placeholder="Enter the first boxer" required/>							</div>
-							<div class="col-sm-2 form-group">
-								<label for="secondBoxer">Second Boxer:</label>
-								<input type="text" class="form-control" id="addfight-username2" placeholder="Enter the second boxer" required/>							</div>
-							<div class="col-sm-2 form-group">
-								<label for="fightID">ID:</label>
-								<input type="number" class="form-control" id="addfight-id" placeholder="Enter the fight ID" required/>							</div>
-							<div class="col-sm-2 form-group">
-								<label for="fightLocation">Location:</label>
-								<input type="text" class="form-control" id="addfight-location" placeholder="Enter the fight location" required/>							</div>
-							<div class="col-sm-2 form-group">
-								<label for="fightRounds">Number of Rounds:</label>
-								<input type="text" class="form-control" id="addfight-rounds" placeholder="Enter the number of rounds" required/>
-							</div>
-							<div class="col-sm-2 form-group">
-								<button type="submit" class="btn btn-outline-success">Submit</button>
-							</div>
-						</form>
+						<div class="text-center">
+							<button type="submit" id="add-fight-btn" class="btn btn-outline-success btn-boxing" data-toggle="modal" data-target="#fight-modal">Add a fight</button>
+						</div>
 					</div>
 
 				</div>
@@ -190,10 +171,10 @@
 							<input class="form-control" id="contactEmail" placeholder="Email" type="text" required>
 						</div> 
 					</div>
-					<textarea class="form-control" id="contactComment" placeholder="Comment" rows="5"></textarea>
+					<textarea class="form-control" id="contactComment" placeholder="Comment" rows="5" required></textarea>
 					<div class="row">
 						<div class="col-sm-12 form-group">
-							<button class="btn btn-default pull-right">Send</button>
+							<button class="btn btn-default pull-right" id="comment-btn">Send</button>
 						</div>
 					</div>
 				</div>
@@ -208,9 +189,44 @@
 		</footer>
 			
 		<div class="container">
-			<div class="modal fade" id="account-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+			<div class="modal fade" id="fight-modal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
 				<div class="modal-dialog">
-					<div class="accountmodal-container">
+					<div class="modal-container">
+						<h1>Add a fight</h1>
+						<form id="addNewFight">
+							<div class="form-group">
+								<label for="firstBoxer">First Boxer:</label>
+								<input type="text" class="form-control" id="addfight-username1" placeholder="Enter the first boxer" required/>							
+							</div>
+							<div class="form-group">
+								<label for="secondBoxer">Second Boxer:</label>
+								<input type="text" class="form-control" id="addfight-username2" placeholder="Enter the second boxer" required/>
+							</div>
+							<div class="form-group">
+								<label for="fightID">ID:</label>
+								<input type="number" class="form-control" id="addfight-id" placeholder="Enter the fight ID" required/>							
+							</div>
+							<div class="form-group">
+								<label for="fightLocation">Location:</label>
+								<input type="text" class="form-control" id="addfight-location" placeholder="Enter the fight location" required/>							
+							</div>
+							<div class="form-group">
+								<label for="fightRounds">Number of Rounds:</label>
+								<input type="text" class="form-control" id="addfight-rounds" placeholder="Enter the number of rounds" required/>
+							</div>
+							<div class="form-group">
+								<button type="submit" class="btn btn-outline-success modal-submit">Submit</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="modal fade" id="account-modal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+				<div class="modal-dialog">
+					<div class="modal-container">
 						<h1>Create an Account</h1>
 						<form id="addNewAccount">
 							<div class="form-group">
@@ -229,7 +245,7 @@
 								<label for="passwo	rd">Password:</label>
 								<input type="password" class="form-control" id="createAccount_password" placeholder="Enter a password" required/>
 							</div>
-							<button type="submit" class="btn btn-outline-success accountmodal-submit">Submit</button>
+							<button type="submit" class="btn btn-outline-success modal-submit">Submit</button>
 							<span class="error" id="account-username-duplicate-error">Cannot create account - username already exists</span>
 							<span class="error" id="account-unauthorised-error">Invalid access token, please refresh the page</span>
 						</form>
@@ -239,9 +255,9 @@
 		</div>
 			
 		<div class="container">
-			<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+			<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
 				<div class="modal-dialog">
-					<div class="accountmodal-container">
+					<div class="modal-container">
 						<h1>Login to your account</h1>
 						<form id="loginToAccount">
 							<div class="form-group">
@@ -252,7 +268,7 @@
 								<label for="surname">Password:</label>
 								<input type="password" class="form-control" id="login_password" placeholder="Enter your password" required/>
 							</div>
-							<button type="submit" class="btn btn-outline-success accountmodal-submit">Submit</button>
+							<button type="submit" class="btn btn-outline-success modal-submit">Submit</button>
 						</form>
 						<div class="account-help">
 							<a href="#">Register</a> - <a href="#">Forgot Password</a>

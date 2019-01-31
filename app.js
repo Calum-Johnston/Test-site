@@ -149,7 +149,6 @@ app.post('/people', function(req, res){
 			res.statusCode = 400;
 		}
 	}
-	console.log(result);
 	return res.send(result);
 });
 
@@ -164,7 +163,6 @@ FUNCTIONS RELATING TO LOGIN & AUTHENTICATION
 
 // Logs someone in to their account (assuming they have valid information)
 app.post('/login', passport.authenticate('local', {session: false}), function(req, res){
-	console.log(req.user);
 	return res.send({token: req.user});
 });
 
