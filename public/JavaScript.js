@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+	var current_logged_username;
+
 	//Script specifically for smooth scrolling
 	$(".navbar a, footer a[href='#main']").on("click", function(event){
 		if(this.hash !== ""){
@@ -44,6 +46,7 @@ $(document).ready(function(){
 		accountData.surname = $('#createAccount_surname').val();
 		accountData.username = $('#createAccount_username').val();
 		accountData.password = $('#createAccount_password').val();
+		accountData.access_token = 'concertina';
 		$('#account-username-duplicate-error').hide(500);
 		$('#account-unauthorised-error').hide(500);
 		$.ajax({
@@ -106,6 +109,7 @@ $(document).ready(function(){
 				$('#navbarSignup').attr("class", "hide");
 				$('#navbarLogin').attr("class", "hide");
 				$('#navbarLogout').removeClass("hide");
+				current_logged_username = accountData.username;
 				$.ajaxSetup({
 					headers: {
 						'Authorization' : "bearer " + result.token
@@ -138,10 +142,11 @@ $(document).ready(function(){
 		event.preventDefault();
 		ajaxPost_AddFight();
 
-	});
+	})
 
 	function ajaxPost_AddFight(){
 		var fightData = {};
+		fightData.current_logged_username = current_logged_username;
 		fightData.username_1 = $('#addfight-username1').val();
 		fightData.username_2 = $('#addfight-username2').val();
 		fightData.id = $('#addfight-id').val();

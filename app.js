@@ -14,6 +14,14 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 const SECRET = 'mysecret';
 
+
+
+
+
+/* ===================== 
+DEFINITION OF JSON CONTENT
+===================== */
+
 var accounts = [];
 var account = {};
 var account2 = {};
@@ -49,6 +57,14 @@ fight2.location = "NV";
 fight2.noOfRounds = "3";
 fights.push(fight);
 fights.push(fight2);
+
+
+
+
+
+/* ===================== 
+FUNCTIONS RELATING TO LOADING INITIAL WEBSITE
+===================== */
 
 app.get('/', function(req, res){
 	res.sendFile(path.join(__dirname+'/public/Home.html'));
@@ -93,6 +109,7 @@ app.get('/fights', function(req, res){
 FUNCTIONS RELATING TO ADDING A FIGHT
 ===================== */
 
+// Adds a fight to the fight table (if user is logged in)
 app.post('/addfight', passport.authenticate('bearer', {session: false}), function(req, res){
 	var result = {};
 	var newFight = {};
@@ -103,7 +120,6 @@ app.post('/addfight', passport.authenticate('bearer', {session: false}), functio
 	newFight.noOfRounds = req.body.noOfRounds;
 
 	fights.push(newFight);
-	console.log(fights);
 	return res.send(JSON.stringify("Nailed it"));
 });
 
@@ -113,9 +129,8 @@ app.post('/addfight', passport.authenticate('bearer', {session: false}), functio
 FUNCTIONS RELATING TO REGISTRATION OF ACCOUNTS
 ===================== */
 
-// Retrieves the data and add its to JSON file (REMEMBER access_token is in header)
+// Creates a new account
 app.post('/people', function(req, res){
-	console.log(req.user);
 	var result = {};
 	var newAccount = {};
 	newAccount.forename = req.body.forename;
@@ -124,16 +139,17 @@ app.post('/people', function(req, res){
 	newAccount.password = req.body.password;
 	result = JSON.stringify("Permission denied - invalid access token")
 	res.statusCode = 403;
-	//if(req.headers.access_token == 'concertina'){
+	if(req.body.access_token == 'concertina'){
 		if(!(checkforUsername(newAccount.username))){
 			result = JSON.stringify("Account successfully added: " + newAccount.username);
 			accounts.push(newAccount);
 			res.statusCode = 200;
 		}else{
-			results = JSON.stringify("Account not created - Username already exists");
+			result = JSON.stringify("Account not created - Username already exists");
 			res.statusCode = 400;
 		}
-	//}
+	}
+	console.log(result);
 	return res.send(result);
 });
 
@@ -146,11 +162,13 @@ app.post('/people', function(req, res){
 FUNCTIONS RELATING TO LOGIN & AUTHENTICATION
 ===================== */
 
+// Logs someone in to their account (assuming they have valid information)
 app.post('/login', passport.authenticate('local', {session: false}), function(req, res){
 	console.log(req.user);
 	return res.send({token: req.user});
 });
 
+// Creates a unique token for a particular login session
 passport.use(new LocalStrategy((username, password, done) => {
 	var position = findUsername(username);
 	if(!(position == -1)){
@@ -162,8 +180,8 @@ passport.use(new LocalStrategy((username, password, done) => {
 	done('null', false);
 }));
 
+// Validates the current token with the current login
 passport.use(new BearerStrategy((token, done) => {
-	console.log(token);
 	try{
 		const { username } = jwt.decode(token, SECRET);
 		if(username === "cal_johnston"){
