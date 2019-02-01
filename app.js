@@ -177,9 +177,11 @@ passport.use(new LocalStrategy((username, password, done) => {
 passport.use(new BearerStrategy((token, done) => {
 	try{
 		const { username } = jwt.decode(token, SECRET);
-		if(username === "cal_johnston"){
-			done(null, username);
-			return;
+		for(var i=0; i<accounts.length; i++){
+			if(username === accounts[i].username){
+				done(null, username);
+				return;
+			}
 		}
 		done(null, false);
 	} catch(error){
