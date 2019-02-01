@@ -156,6 +156,7 @@ $(document).ready(function(){
 			dataType: 'json',			
 			url: window.location.origin + '/addfight',
 			success: function(result){
+				$('#fight-modal').modal('toggle');
 				console.log(JSON.stringify(result));
 				ajaxGet_loadFightTables();
 			},
