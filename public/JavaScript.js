@@ -175,7 +175,7 @@ $(document).ready(function(){
 
 
 
-	$('#contact').submit(function(event){
+	$('#contact-form').submit(function(event){
 		event.preventDefault();
 		$('#contactName').val("");
 		$('#contactEmail').val("");

@@ -107,8 +107,9 @@
 					<span class="glyphicon glyphicon-user icon"></span>
 				</div>
 				<div class="col-sm-8 col-sm-pull-4">
-					<div class="table-responsive">
-						<table class="table table-hover table-striped" data-height="460">
+					<h3>Durham University Boxers</h3>
+					<div class="table-responsive" id="boxing-table-div">
+						<table class="table table-hover table-striped" id="boxing-table" data-height="460">
 							<thead class="thead">
 								<tr>
 									<th data-field="data_forename" scope="col">Firstname</th>
@@ -163,27 +164,29 @@
 					<p><span class="glyphicon glyphicon-envelope"></span> boxing@durham.com</p>
 				</div>
 				<div class="col-sm-7 slide-feature">
-					<div class="row">
-						<div class="col-sm-6 form-group">
-							<input class="form-control" id="contactName" placeholder="Name" type="text" required>
-						</div> 
-						<div class="col-sm-6 form-group">
-							<input class="form-control" id="contactEmail" placeholder="Email" type="text" required>
-						</div> 
-					</div>
-					<textarea class="form-control" id="contactComment" placeholder="Comment" rows="5" required></textarea>
-					<div class="row">
-						<div class="col-sm-12 form-group">
-							<button class="btn btn-default pull-right" id="comment-btn">Send</button>
+					<form id="contact-form">
+						<div class="row">
+							<div class="col-sm-6 form-group">
+								<input class="form-control" id="contactName" placeholder="Name" type="text" required>
+							</div> 
+							<div class="col-sm-6 form-group">
+								<input class="form-control" id="contactEmail" placeholder="Email" type="email" required>
+							</div> 
 						</div>
-					</div>
+						<textarea class="form-control" id="contactComment" placeholder="Comment" rows="5" required></textarea>
+						<div class="row">
+							<div class="col-sm-12 form-group">
+								<button class="btn btn-default pull-right" id="comment-btn">Send</button>
+							</div>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
 
 		<footer class="container-fluid text-center background-grey">
 			<a href="#main" title="To Top">
-				<span class="glyphicon glyphicon-chevron-up"></span>
+				<span class="glyphicon glyphicon-chevron-up icon-small"></span>
 			</a>
 			<p>Website created by Calum Johnston</p>
 		</footer>
@@ -270,7 +273,7 @@
 							</div>
 							<button type="submit" class="btn btn-outline-success modal-submit">Submit</button>
 						</form>
-						<div class="account-help">
+						<div class="modal-help">
 							<a href="#">Register</a> - <a href="#">Forgot Password</a>
 						</div>
 						<span class="error" id="login-error">Invalid Username or Password</span>
